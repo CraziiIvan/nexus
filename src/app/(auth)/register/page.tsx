@@ -1,4 +1,6 @@
-import LoginForm from "@/components/loginForm";
+
+
+import RegisterForm from "@/components/registerForm";
 import Link from "next/link";
 
 export default function Page() {
@@ -7,16 +9,16 @@ export default function Page() {
     <>
       <main className=" py-12 grid gap-12">
         <section>
-          <h1 className="text-2xl font-semibold">Welcome Back!</h1>
+          <h1 className="text-2xl font-semibold">Create Account</h1>
           <p className="mt-1 text-neutral-500">
-            Login to your account
+            Join us and manage your crypto
           </p>
         </section>
-        <LoginForm/>
+        <RegisterForm/>
       </main>
       <footer className="w-full text-center">
-        <span className="text-neutral-700">Don't have an account? </span>
-        <Link href="/register">Register</Link>
+        <span className="text-neutral-700">Already have an account? </span>
+        <Link href="/login">Login</Link>
       </footer>
     </>
   );

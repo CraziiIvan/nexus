@@ -15,7 +15,7 @@ const Input = forwardRef<HTMLInputElement, TInputProps>(
           ref={ref}
           type={type}
           {...props}
-          className="mt-1 p-3 w-full placeholder:text-neutral-700 border bg-neutral-900 border-neutral-800 rounded-xl"
+          className="mt-1 p-3 w-full placeholder:text-neutral-700 border bg-neutral-950 border-neutral-900 rounded-xl"
         />
       );
     }
@@ -30,7 +30,7 @@ const Input = forwardRef<HTMLInputElement, TInputProps>(
           ref={ref}
           type={showPassword ? "text" : "password"}
           {...props}
-          className="mt-1 p-3 w-full placeholder:text-neutral-700 border bg-neutral-900 border-neutral-800 rounded-xl"
+          className="mt-1 p-3 w-full placeholder:text-neutral-700 border bg-neutral-950 border-neutral-900 rounded-xl"
         />
         <button type="button" className="absolute right-3 text-neutral-700" onClick={toggleShowPassword}>
           {showPassword ? <Eye width={20} /> : <EyeClosed width={20} />}

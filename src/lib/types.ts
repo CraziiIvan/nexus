@@ -23,3 +23,11 @@ export const logInFormSchema = z
   })
 
 export type TLoginFormSchema = z.infer<typeof logInFormSchema>;
+
+export type TJwtToken = {
+  token_type: "access";
+  exp: number;
+  iat: number;
+  jti: string;
+  user_id: number;
+}

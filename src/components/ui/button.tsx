@@ -1,4 +1,4 @@
-import { cn } from "@/lib/helper";
+import { cn } from "@/lib/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { forwardRef } from "react";
 
@@ -18,7 +18,7 @@ export const buttonVariants = cva("rounded-xl flex items-center justify-center d
   },
 });
 
-type TButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+export type TButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants>;
 
 const Button = forwardRef<HTMLButtonElement, TButtonProps>(
