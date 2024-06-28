@@ -1,8 +1,8 @@
-import { cn } from "@/utils/helper";
+import { cn } from "@/lib/helper";
 import { cva, VariantProps } from "class-variance-authority";
 import { forwardRef } from "react";
 
-export const buttonVariants = cva("rounded-xl flex items-center justify-center", {
+export const buttonVariants = cva("rounded-xl flex items-center justify-center disabled:opacity-75 disabled:pointer-events-none", {
   variants: {
     variant: {
       default: "",

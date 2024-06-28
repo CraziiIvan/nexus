@@ -5,7 +5,7 @@ export default function AuthLayout({
 }) {
   return (
     <>
-      <header className=" mb-12"></header>
+      <header></header>
       {children}
     </>
   );

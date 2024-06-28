@@ -9,6 +9,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        error: "error .15s ease-out",
+      },
+      keyframes: {
+        error: {
+          "0%": { opacity: "0" },
+          "100%": { opaciy: "1" },
+        },
+      },
     },
   },
   plugins: [],
