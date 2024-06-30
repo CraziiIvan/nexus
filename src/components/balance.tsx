@@ -25,7 +25,7 @@ export default function Balance() {
   }
 
   return (
-    <div className=" flex flex-col items-center space-y-4 py-12">
+    <div className=" flex flex-col items-center space-y-6 py-12">
       <div className="text-neutral-500">Balance</div>
       <div className=" relative text-4xl font-semibold">
         {balance}

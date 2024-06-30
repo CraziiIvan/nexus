@@ -33,34 +33,28 @@ export default function Home() {
       </header>
       <main className="flex flex-col w-full">
         <Balance />
-        <div className="flex justify-between w-full">
-          <div className="flex flex-col items-center text-neutral-700 text-sm gap-y-2">
+        <div className="flex justify-evenly w-full">
+          <div className="flex flex-col items-center text-neutral-700 text-xs gap-y-2">
             <TransButton>
-              <Plus />
+              <Plus fontSize={14}/>
             </TransButton>
             <div>Add</div>
           </div>
-          <div className="flex flex-col items-center text-neutral-700 text-sm gap-y-2">
+          <div className="flex flex-col items-center text-neutral-700 text-xs gap-y-2">
             <TransButton>
-              <Upload />
+              <Upload fontSize={14}/>
             </TransButton>
             <div>Send</div>
           </div>
-          <div className="flex flex-col items-center text-neutral-700 text-sm gap-y-2">
+          <div className="flex flex-col items-center text-neutral-700 text-xs gap-y-2">
             <TransButton>
-              <Download />
+              <Download fontSize={14}/>
             </TransButton>
             <div>Receive</div>
           </div>
-          <div className="flex flex-col items-center text-neutral-700 text-sm gap-y-2">
+          <div className="flex flex-col items-center text-neutral-700 text-xs gap-y-2">
             <TransButton>
-              <CoinsSwap />
-            </TransButton>
-            <div>Swap</div>
-          </div>
-          <div className="flex flex-col items-center text-neutral-700 text-sm gap-y-2">
-            <TransButton>
-              <CoinsSwap />
+              <CoinsSwap fontSize={14}/>
             </TransButton>
             <div>Swap</div>
           </div>

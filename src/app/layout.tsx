@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ProtectRoute from "@/components/protectRoute";
+import Nav from "@/components/nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +21,7 @@ export default function RootLayout({
         <div className=" fixed bg-blue-900 w-32 h-20 roundded-full blur-[100px] -top-10 left-1/2 -translate-x-1/2 -z-10" />
         <div className=" bg-blue-950 w-96 h-80 rounded-full fixed -z-20 blur-[200px] -top-52 left-1/2 -translate-x-1/2" />
         {children}
+        <Nav />
       </body>
     </html>
   );
