@@ -37,6 +37,7 @@ export default function RegisterForm() {
           id="username"
           label="Username"
           type="text"
+          placeholder="John Doe"
           {...register("username")}
           error={errors.email?.message}
         />

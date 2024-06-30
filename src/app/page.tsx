@@ -1,56 +1,92 @@
+import AssetItem from "@/components/assetItem";
 import Balance from "@/components/balance";
 import Nav from "@/components/nav";
+import ProtectRoute from "@/components/protectRoute";
 import TransButton from "@/components/ui/transButton";
-import { Download, NavArrowDown, Plus, ScanQrCode, Upload } from "iconoir-react";
+import {
+  CoinsSwap,
+  Download,
+  NavArrowDown,
+  Plus,
+  ScanQrCode,
+  Upload,
+} from "iconoir-react";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <>
-      <header className=" grid grid-cols-3 h-10 items-center">
-        <div></div>
-        <div className=" flex items-center justify-center">
-          <button className=" flex items-center text-neutral-500 gap-x-2">
-            <Image
-              src={"/networks/tron.svg"}
-              alt="Tron Network"
-              width={20}
-              height={20}
-            />
-            <div className=" text-sm text-white">Tron RTX</div>
-            <NavArrowDown fontSize={12} />
-          </button>
-        </div>
-        <div className=" flex items-center justify-end">
-          <button className=" text-neutral-500">
-            <ScanQrCode />
-          </button>
-        </div>
+    <ProtectRoute>
+      <header className="flex justify-between h-10 items-center">
+        <button className="flex items-center text-neutral-500 gap-x-2">
+          <Image
+            src="/networks/tron.svg"
+            alt="Tron Network"
+            width={24}
+            height={24}
+          />
+          <div className="text-sm text-white">Tron RTX</div>
+          <NavArrowDown fontSize={12} />
+        </button>
+        <button className="text-neutral-500">
+          <ScanQrCode />
+        </button>
       </header>
-      <main className=" grid justify-center gap-y-12 pt-12">
+      <main className="flex flex-col w-full">
         <Balance />
-        <div className=" grid grid-cols-3 gap-x-8">
-          <div>
-            <TransButton>
-              <Upload />
-            </TransButton>
-            <div className=" text-center mt-1 text-neutral-700">Send</div>
-          </div>
-          <div>
+        <div className="flex justify-evenly w-full">
+          <div className="flex flex-col items-center text-neutral-700 text-sm gap-y-2">
             <TransButton variant="primary">
               <Plus />
             </TransButton>
-            <div className=" text-center mt-1 text-neutral-700">Add</div>
+            <div>Add</div>
           </div>
-          <div>
+          <div className="flex flex-col items-center text-neutral-700 text-sm gap-y-2">
+            <TransButton>
+              <Upload />
+            </TransButton>
+            <div>Send</div>
+          </div>
+          <div className="flex flex-col items-center text-neutral-700 text-sm gap-y-2">
             <TransButton>
               <Download />
             </TransButton>
-            <div className=" text-center mt-1 text-neutral-700">Receive</div>
+            <div>Receive</div>
+          </div>
+          <div className="flex flex-col items-center text-neutral-700 text-sm gap-y-2">
+            <TransButton>
+              <CoinsSwap />
+            </TransButton>
+            <div>Swap</div>
+          </div>
+        </div>
+        <div className="w-full pt-4 border-t border-t-neutral-900 mt-8">
+          <div className=" flex gap-x-8">
+          <div className="text-white">Assets</div>
+          <div className="text-neutral-700">Nfts</div>
+          </div>
+          <div className="mt-6 grid gap-y-4">
+            <AssetItem
+              src="/tokens/bitcoin.svg"
+              alt="Bitcoin"
+              name="Bitcoin"
+              price="$60,856.80"
+              change="0.90%"
+              quantity="1.3"
+              value="$79,113.84"
+            />
+            <AssetItem
+              src="/tokens/ethereum.svg"
+              alt="Ethereum"
+              name="Ethereum"
+              price="$3,394.71"
+              change="0.62%"
+              quantity="9.6"
+              value="$32,589.22"
+            />
           </div>
         </div>
         <Nav />
       </main>
-    </>
+    </ProtectRoute>
   );
 }

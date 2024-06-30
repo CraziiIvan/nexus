@@ -9,7 +9,7 @@ export default function Page() {
     <>
       <main className=" py-12 grid gap-12">
         <section>
-          <h1 className="text-2xl font-semibold">Create Account</h1>
+          <h1 className="text-xl font-semibold">Create Account</h1>
           <p className="mt-1 text-neutral-500">
             Join us and manage your crypto
           </p>

@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-black p-6 text-white`}>
         <div className=" fixed bg-blue-900 w-32 h-20 roundded-full blur-[100px] -top-10 left-1/2 -translate-x-1/2 -z-10" />
         <div className=" bg-blue-950 w-96 h-80 rounded-full fixed -z-20 blur-[200px] -top-52 left-1/2 -translate-x-1/2" />
-        <ProtectRoute>{children}</ProtectRoute>
+        {children}
       </body>
     </html>
   );

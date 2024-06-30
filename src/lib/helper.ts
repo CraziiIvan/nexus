@@ -12,3 +12,8 @@ export function generateRandomString(length: number) {
   }
   return randomString;
 }
+
+export const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD"
+})

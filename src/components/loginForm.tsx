@@ -23,7 +23,8 @@ export default function LoginForm() {
   const onSubmit: SubmitHandler<TLoginFormSchema> = async (data) => {
     try {
       const response = await api.post("/auth/token/obtain/", data);
-      localStorage.setItem("token", response.data.access);
+      localStorage.setItem("accessToken", response.data.access);
+      localStorage.setItem("refreshToken", response.data.refresh)
       router.push("/");
     } catch (error) {
       console.error(error);

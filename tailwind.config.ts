@@ -16,7 +16,7 @@ const config: Config = {
         error: {
           "0%": { opacity: "0" },
           "100%": { opaciy: "1" },
-        },
+        }
       },
     },
   },
