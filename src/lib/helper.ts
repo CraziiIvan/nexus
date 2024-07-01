@@ -17,3 +17,16 @@ export const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD"
 })
+
+export function shorternId(id: string) {
+  if (id.length <= 12) {
+    return id
+  }
+
+  return( id.slice(0, 6) + "...." + id.slice(-5))
+}
+
+export function extractDate(timestamp: string) {
+  const newDate = new Date(timestamp)
+  return(newDate.toDateString())
+}

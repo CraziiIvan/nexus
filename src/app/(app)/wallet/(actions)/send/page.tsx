@@ -32,7 +32,7 @@ export default function Send() {
         <Link className="text-neutral-500" href={"./"}>
           <NavArrowLeft fontSize={14} />
         </Link>
-        <div className="font-medium">Send</div>
+        <div>Send</div>
         <Scanning fontSize={14} className="text-neutral-500" />
       </header>
       <main className=" pt-8 space-y-6">

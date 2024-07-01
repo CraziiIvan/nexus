@@ -9,7 +9,6 @@ import Link from "next/link";
 const navList = [
   { name: "Wallet", icon: <Wallet width={20} />, href: "/wallet" },
   { name: "Market", icon: <GraphUp width={20} />, href: "/market" },
-  { name: "User", icon: <User width={20} />, href: "/user" },
   { name: "Setting", icon: <Settings width={20} />, href: "/setting" },
 ];
 

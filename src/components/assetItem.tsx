@@ -5,9 +5,9 @@ type TAssetItemProps = {
     alt: string
     name: string
     price: string
-    change: string
+    change?: string
     quantity: string
-    value: string
+    value?: string
 }
 
 export default function AssetItem({ src, alt, name, price, change, quantity, value }: TAssetItemProps){
