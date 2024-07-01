@@ -12,7 +12,7 @@ type TAssetItemProps = {
 
 export default function AssetItem({ src, alt, name, price, change, quantity, value }: TAssetItemProps){
     return (
-        <div className="flex items-center justify-between w-full">
+      <div className="flex items-center justify-between w-full">
       <div className="flex gap-x-4">
         <Image src={src} alt={alt} width={38} height={38} />
         <div>

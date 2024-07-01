@@ -25,7 +25,7 @@ export default function LoginForm() {
       const response = await api.post("/auth/token/obtain/", data);
       localStorage.setItem("accessToken", response.data.access);
       localStorage.setItem("refreshToken", response.data.refresh)
-      router.push("/");
+      router.push("/wallet");
     } catch (error) {
       console.error(error);
       alert("Login failed. Please check your credentials.");

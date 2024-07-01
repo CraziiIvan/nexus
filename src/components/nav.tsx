@@ -17,11 +17,15 @@ export default function Nav() {
 
   const pathname = usePathname()
 
+  if ( pathname === "/" || pathname ==="/login" || pathname ==="/register") {
+    return null
+  }
+
   return (
     <nav className="fixed z-40 bottom-6 left-1/2 -translate-x-1/2 p-px bg-gradient-to-b from-neutral-800 to-neutral-950 rounded-full">
       <ul className="text-neutral-500 flex gap-x-6 px-6 py-4 rounded-full bg-neutral-950">
         {navList.map((nav, index) => {
-          const isActive = pathname === nav.href;
+          const isActive = pathname.startsWith(nav.href);
           return (
             <motion.li
               key={index}

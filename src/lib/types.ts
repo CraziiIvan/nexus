@@ -24,6 +24,14 @@ export const logInFormSchema = z
 
 export type TLoginFormSchema = z.infer<typeof logInFormSchema>;
 
+export const sendFormSchema = z
+  .object({
+    recipient: z.string(),
+    amount: z.number(),
+  })
+
+export type TSendFormSchema = z.infer<typeof sendFormSchema>;
+
 export type TJwtToken = {
   token_type: "access";
   exp: number;

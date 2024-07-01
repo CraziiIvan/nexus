@@ -1,31 +1,21 @@
 "use client";
 
-import { getBalance } from "@/lib/actions";
-import { formatter } from "@/lib/helper";
+import { getAddress, getBalance } from "@/lib/actions";
 import { ArrowUpRight, Eye, EyeClosed } from "iconoir-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 
 export default function Balance() {
 
-  const [balance, setBalance] = useState("");
+  const [balance, setBalance] = useState(getBalance());
   const [showBalace, setShowBalance] = useState(true);
-
-  useEffect(() => {
-    async function fetchBalance() {
-      const data = await getBalance()
-      setBalance(formatter.format(data))
-    }
-
-    fetchBalance()
-  }, [])
 
   function showBalaceToggle() {
     setShowBalance(!showBalace)
   }
 
   return (
-    <div className=" flex flex-col items-center space-y-6 py-12">
+    <div className=" flex flex-col items-center space-y-4 py-12">
       <div className="text-neutral-500">Balance</div>
       <div className=" relative text-4xl font-semibold">
         {balance}
