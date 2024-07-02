@@ -1,11 +1,12 @@
 import Image from "next/image"
+import Status from "./ui/status"
 
 type TAssetItemProps = {
     src: string
     alt: string
     name: string
     price: string
-    change?: string
+    change: number
     quantity: string
     value?: string
 }
@@ -17,8 +18,8 @@ export default function AssetItem({ src, alt, name, price, change, quantity, val
         <Image src={src} alt={alt} width={38} height={38} />
         <div>
           <div className="font-medium">{name}</div>
-          <div className="text-sm text-neutral-400">
-            {price} <span className="ml-2 text-green-500">{change}</span>
+          <div className="text-sm flex gap-x-2 text-neutral-400">
+            {price} <Status icon={false} percent={change}/>
           </div>
         </div>
       </div>

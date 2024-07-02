@@ -6,7 +6,7 @@ export const buttonVariants = cva("rounded-xl flex items-center justify-center d
   variants: {
     variant: {
       default: "",
-      primary: "bg-neutral-100 text-black hover:bg-white font-medium",
+      primary: "bg-neutral-100 text-black hover:bg-white",
     },
     size: {
       default: "py-3 px-5",

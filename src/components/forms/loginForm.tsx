@@ -5,6 +5,7 @@ import FormField from "@/components/ui/formField";
 import api from "@/lib/api";
 import { logInFormSchema, TLoginFormSchema } from "@/lib/types";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 
@@ -15,7 +16,6 @@ export default function LoginForm() {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
-    
   } = useForm<TLoginFormSchema>({
     resolver: zodResolver(logInFormSchema),
   });
@@ -24,7 +24,7 @@ export default function LoginForm() {
     try {
       const response = await api.post("/auth/token/obtain/", data);
       localStorage.setItem("accessToken", response.data.access);
-      localStorage.setItem("refreshToken", response.data.refresh)
+      localStorage.setItem("refreshToken", response.data.refresh);
       router.push("/wallet");
     } catch (error) {
       console.error(error);
@@ -51,8 +51,16 @@ export default function LoginForm() {
           error={errors.password?.message}
         />
       </fieldset>
+      <div className="text-end text-neutral-500 mt-8">
+        <Link href={"/forgetPassword"}>Forget Password?</Link>
+      </div>
       <div className="mt-12">
-        <Button type="submit" disabled={isSubmitting} variant="primary" className="w-full">
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          variant="primary"
+          className="w-full"
+        >
           Login Account
         </Button>
       </div>

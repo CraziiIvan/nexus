@@ -7,6 +7,7 @@ import { signUpFormSchema, TSignUpFormSchema } from "@/lib/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 export default function RegisterForm() {
   const router = useRouter();
@@ -23,10 +24,11 @@ export default function RegisterForm() {
     try {
       const { username, email, password } = data;
       await api.post("/auth/register/", { username, email, password });
+      await api.post("/trc-20/wallet/");
       router.push("/login");
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
-      alert("Registration failed. Please try again.");
+      toast.error(error.message)
     }
   };
 

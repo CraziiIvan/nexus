@@ -14,7 +14,7 @@ export default function Page() {
         </section>
         <LoginForm/>
       </main>
-      <footer className="w-full text-center">
+      <footer className="w-full text-center pb-8">
         <span className="text-neutral-700">Don't have an account? </span>
         <Link href="/register">Register</Link>
       </footer>

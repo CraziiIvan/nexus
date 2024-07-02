@@ -28,7 +28,7 @@ export default function History() {
 
   return (
     <ProtectRoute>
-          <header className="grid grid-cols-3 items-center">
+      <header className="grid grid-cols-3 items-center">
     <Link className="text-neutral-500" href={"./"}>
       <NavArrowLeft fontSize={14} />
     </Link>
@@ -41,7 +41,7 @@ export default function History() {
         <div className="flex gap-x-4">
           <Image src={"/networks/tron.svg"} alt={"Tron"} width={38} height={38} />
           <div>
-            <div>Send</div>
+            <div><span className=" text-red-500">Send</span> <strong>Tron</strong></div>
             <div className="text-sm text-neutral-400">
               To {shorternId(transaction.recipient)}
             </div>
@@ -49,7 +49,8 @@ export default function History() {
         </div>
         <div>
           <div className="font-medium text-end">{formatter.format(transaction.amount)}</div>
-          <div className="text-sm text-neutral-400 text-end">{extractDate(transaction.timestamp)}</div>
+          <div className="text-sm text-neutral-400 text-end">{ }</div>
+          {/* <div className="text-sm text-neutral-400 text-end">{extractDate(transaction.timestamp)}</div> */}
         </div>
       </div>
       ))

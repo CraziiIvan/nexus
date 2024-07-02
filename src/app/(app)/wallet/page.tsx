@@ -86,7 +86,7 @@ export default function Home() {
               alt="Bitcoin"
               name="Bitcoin"
               price="$60,856.80"
-              change="0.90%"
+              change={0.90}
               quantity="1.3"
               value="$79,113.84"
             />
@@ -95,7 +95,7 @@ export default function Home() {
               alt="Ethereum"
               name="Ethereum"
               price="$3,394.71"
-              change="0.62%"
+              change={0.62}
               quantity="9.6"
               value="$32,589.22"
             />

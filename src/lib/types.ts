@@ -16,19 +16,29 @@ export const signUpFormSchema = z
 
 export type TSignUpFormSchema = z.infer<typeof signUpFormSchema>;
 
-export const logInFormSchema = z
-  .object({
-    email: z.string().email(" Invalid email address"),
-    password: z.string().min(8, "Password must be at least 8 characters"),
-  })
+export const logInFormSchema = z.object({
+  email: z.string().email(" Invalid email address"),
+  password: z.string().min(8, "Password must be at least 8 characters"),
+});
 
 export type TLoginFormSchema = z.infer<typeof logInFormSchema>;
 
-export const sendFormSchema = z
-  .object({
-    recipient: z.string(),
-    amount: z.number(),
-  })
+export const sendFormSchema = z.object({
+  recipient: z.string().min(1, "Id can't be empty"),
+  amount: z
+    .union([
+      z.number(),
+      z
+        .string()
+        .refine((val) => !isNaN(parseFloat(val)), {
+          message: "Invalid number format",
+        })
+        .transform((val) => parseFloat(val)),
+    ])
+    .refine((val) => val >= 0.000001, {
+      message: "Amount must be at least 0.000001",
+    }),
+});
 
 export type TSendFormSchema = z.infer<typeof sendFormSchema>;
 
@@ -38,15 +48,15 @@ export type TJwtToken = {
   iat: number;
   jti: string;
   user_id: number;
-}
+};
 
 export type TTransaction = {
-  sender: number
-  recipient: string
-  amount: number 
-  transaction_hash: string
-  status: string
-  timestamp : string
-  block_number: string
-  fee: string
-}
+  sender: number;
+  recipient: string;
+  amount: number;
+  transaction_hash: string;
+  status: string;
+  timestamp: string;
+  block_number: string;
+  fee: string;
+};

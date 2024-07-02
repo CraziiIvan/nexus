@@ -16,7 +16,7 @@ export default function Page() {
         </section>
         <RegisterForm/>
       </main>
-      <footer className="w-full text-center">
+      <footer className="w-full text-center pb-8">
         <span className="text-neutral-700">Already have an account? </span>
         <Link href="/login">Login</Link>
       </footer>
