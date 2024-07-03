@@ -46,11 +46,11 @@ const actions = [
 export default function Home() {
   return (
     <ProtectRoute>
-      <header className="flex justify-between ">
+      <header className="flex justify-between sticky top-6 ">
         <div>
           <Image src={"/nexus.svg"} alt="Nexus" width={20} height={20} />
         </div>
-        <button className="flex items-center gap-x-1.5 p-1 pr-1.5 bg-black/25 rounded-full">
+        <button className="flex items-center gap-x-1 p-1 bg-white/10 rounded-full">
           <Image
             src="/networks/tron.svg"
             alt="Tron Network"
@@ -80,9 +80,9 @@ export default function Home() {
             <div className="text-white">Assets</div>
             <div className="text-neutral-700">Nfts</div>
           </div>
-          <div className="mt-6 grid gap-y-4">
+          <div className="mt-8 grid gap-y-6">
             <AssetItem
-              src="/tokens/bitcoin.svg"
+              src="/cryptos/bitcoin.svg"
               alt="Bitcoin"
               name="Bitcoin"
               price="$60,856.80"
@@ -91,7 +91,7 @@ export default function Home() {
               value="$79,113.84"
             />
             <AssetItem
-              src="/tokens/ethereum.svg"
+              src="/cryptos/ethereum.svg"
               alt="Ethereum"
               name="Ethereum"
               price="$3,394.71"

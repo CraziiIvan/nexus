@@ -17,9 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} bg-black p-6 text-white h-svh w-svw`}>
-        <div className=" fixed bg-blue-900 w-32 h-20 roundded-full blur-[100px] -top-10 left-1/2 -translate-x-1/2 -z-10" />
-        <div className=" bg-blue-950 w-96 h-80 rounded-full fixed -z-20 blur-[200px] -top-52 left-1/2 -translate-x-1/2" />
+      <body className={`${inter.className} bg-black p-6 text-white h-screen w-screen`}>
+        {/* <div className=" fixed bg-blue-900 w-32 h-20 roundded-full blur-[100px] -top-10 left-1/2 -translate-x-1/2 -z-10" />
+        <div className=" bg-blue-950 w-96 h-80 rounded-full fixed -z-20 blur-[200px] -top-52 left-1/2 -translate-x-1/2" /> */}
+        <div className="fixed z-30 bottom-0 w-full h-24 bg-gradient-to-b from-black/0 to-black" />
         {children}
         <Toaster position="top-center" richColors/>
       </body>

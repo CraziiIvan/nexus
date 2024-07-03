@@ -1,11 +1,10 @@
 "use client"
 
-import AssetItem from "@/components/assetItem";
 import ProtectRoute from "@/components/protectRoute";
 import api from "@/lib/api";
-import { extractDate, formatter, shorternId } from "@/lib/helper";
+import {  formatter, shorternId } from "@/lib/helper";
 import { TTransaction } from "@/lib/types";
-import { NavArrowLeft } from "iconoir-react";
+import { NavArrowLeft, Upload } from "iconoir-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -38,19 +37,18 @@ export default function History() {
     {
       history.map(transaction => (
         <div className="flex items-center justify-between w-full">
-        <div className="flex gap-x-4">
-          <Image src={"/networks/tron.svg"} alt={"Tron"} width={38} height={38} />
+        <div className="flex gap-x-4 items-center">
+        <Image src={"/networks/tron.svg"} alt={"Tron"} width={36} height={36} />
           <div>
-            <div><span className=" text-red-500">Send</span> <strong>Tron</strong></div>
+            <div className=" font-medium">Send Tron</div>
             <div className="text-sm text-neutral-400">
               To {shorternId(transaction.recipient)}
             </div>
           </div>
         </div>
         <div>
-          <div className="font-medium text-end">{formatter.format(transaction.amount)}</div>
+          <div className="text-end text-neutral-400">- {formatter.format(transaction.amount)}</div>
           <div className="text-sm text-neutral-400 text-end">{ }</div>
-          {/* <div className="text-sm text-neutral-400 text-end">{extractDate(transaction.timestamp)}</div> */}
         </div>
       </div>
       ))
