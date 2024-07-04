@@ -1,6 +1,25 @@
+"use client"
+
 import Button from "@/components/ui/button";
+import { redirect } from "next/navigation";
+import { useEffect, useState } from "react";
+import Loading from "../loading";
 
 export default function Home() {
+
+  const [ isLoading, setIsLoading ] = useState(true)
+
+  useEffect(() => {
+    if (localStorage.getItem("accessToken")) {
+      redirect("/wallet");
+    }
+    setIsLoading(false)
+  }, [])
+
+  if(isLoading) {
+    return null
+  }
+  
   return (
     <main className="py-12 flex flex-col justify-between h-full">
       <div>

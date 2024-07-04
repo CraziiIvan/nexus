@@ -3,15 +3,17 @@ import { cva, VariantProps } from "class-variance-authority";
 import Link from "next/link";
 import { forwardRef } from "react";
 
-export const buttonVariants = cva("rounded-xl w-full flex items-center justify-center disabled:opacity-75 disabled:pointer-events-none", {
+export const buttonVariants = cva("rounded-xl w-full flex items-center gap-x-2 justify-center disabled:opacity-75 disabled:pointer-events-none transitons-colors duration-300 ease-out", {
   variants: {
     variant: {
       default: "",
+      action: "bg-neutral-950 border border-neutral-800 text-sm  w-min rounded-full hover:bg-neutral-900",
       secondary: " bg-transparent border border-neutral-800 hover:bg-neutral-950",
       primary: "bg-neutral-100 text-black hover:bg-white",
     },
     size: {
       default: "py-3 px-5",
+      action: "py-2.5 pl-3 pr-4",
     },
   },
   defaultVariants: {

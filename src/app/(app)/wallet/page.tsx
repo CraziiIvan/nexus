@@ -1,47 +1,10 @@
 import AssetItem from "@/components/assetItem";
-import Balance from "@/components/balance";
+import Hero from "@/components/layouts/hero";
 import Nav from "@/components/layouts/nav";
 import ProtectRoute from "@/components/protectRoute";
-import ActionButton from "@/components/ui/actionButton";
 
-import {
-  Clock,
-  CoinsSwap,
-  Download,
-  NavArrowDown,
-  Plus,
-  Scanning,
-  Upload,
-} from "iconoir-react";
+import { NavArrowDown, Scanning } from "iconoir-react";
 import Image from "next/image";
-
-const actions = [
-  {
-    href: "/wallet/add",
-    icon: <Plus fontSize={14} />,
-    label: "Add",
-  },
-  {
-    href: "/wallet/send",
-    icon: <Upload fontSize={14} />,
-    label: "Send",
-  },
-  {
-    href: "/wallet/receive",
-    icon: <Download fontSize={14} />,
-    label: "Receive",
-  },
-  {
-    href: "/wallet/swap",
-    icon: <CoinsSwap fontSize={14} />,
-    label: "Swap",
-  },
-  {
-    href: "/wallet/history",
-    icon: <Clock fontSize={14} />,
-    label: "History",
-  },
-];
 
 export default function Home() {
   return (
@@ -62,20 +25,9 @@ export default function Home() {
         </button>
         <Scanning fontSize={14} className="text-neutral-500" />
       </header>
-      <main className="flex flex-col w-full gap-y-8 mt-8">
-        <Balance />
-        <div className="flex justify-between w-full">
-          {actions.map((action, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center text-neutral-500 text-xs gap-y-2"
-            >
-              <ActionButton href={action.href}>{action.icon}</ActionButton>
-              <div>{action.label}</div>
-            </div>
-          ))}
-        </div>
-        <div className="w-full relative pt-4 before:absolute before:w-full before:h-px before:top-0 before:bg-gradient-to-r before:from-black before:via-neutral-700 before:to-black">
+      <main className="flex flex-col w-full mt-8">
+        <Hero/>
+        <div className="w-full relative pt-4 mt-4 border-t border-neutral-900">
           <div className=" flex gap-x-8">
             <div className="text-white">Assets</div>
             <div className="text-neutral-700">Nfts</div>
@@ -86,7 +38,7 @@ export default function Home() {
               alt="Bitcoin"
               name="Bitcoin"
               price="$60,856.80"
-              change={0.90}
+              change={0.9}
               quantity="1.3"
               value="$79,113.84"
             />
