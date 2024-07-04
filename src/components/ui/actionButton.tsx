@@ -9,7 +9,7 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: " bg-neutral-900 text-neutral-200 from-neutral-800 to-neutral-900",
+        default: " bg-neutral-900 text-neutral-200 from-neutral-700 to-neutral-800",
         primary: "bg-neutral-200 from-neutral-100 to-neutral-200 text-neutral-800",
         header: " bg-white/25 from-white to-white/20"
       },
@@ -29,7 +29,7 @@ type TTransButtonProps = TButtonProps & {
   href: string
 }
 
-const LightButton = forwardRef<HTMLButtonElement, TTransButtonProps>(
+const ActionButton = forwardRef<HTMLButtonElement, TTransButtonProps>(
   ({ variant, className, href , children,...props }, ref) => {
     return (
       <button
@@ -45,4 +45,4 @@ const LightButton = forwardRef<HTMLButtonElement, TTransButtonProps>(
   }
 );
 
-export default LightButton;
+export default ActionButton;

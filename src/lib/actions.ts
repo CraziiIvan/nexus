@@ -1,5 +1,4 @@
 import api from "./api";
-import { formatter } from "./helper";
 
 export async function getWallet() {
   try {

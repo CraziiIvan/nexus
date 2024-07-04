@@ -15,7 +15,7 @@ const Input = forwardRef<HTMLInputElement, TInputProps>(
           ref={ref}
           type={type}
           {...props}
-          className="mt-1 p-3 w-full placeholder:text-neutral-500 border bg-neutral-950 border-neutral-800 focus:outline outline-white rounded-xl"
+          className="mt-1 p-3 w-full placeholder:text-neutral-700 border bg-neutral-950 border-neutral-800 focus:outline outline-white rounded-xl"
         />
       );
     }

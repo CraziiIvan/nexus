@@ -21,19 +21,18 @@ export default function Nav() {
   }
 
   return (
-      <nav className="text-neutral-500 fixed z-40 bottom-6 left-1/2 -translate-x-1/2 flex gap-x-6 px-6 py-4 rounded-full bg-neutral-950 drop-shadow-lg border-[1.5px] border-neutral-900">
+      <nav className="fixed z-40 bottom-6 left-1/2 -translate-x-1/2 p-px bg-gradient-to-b from-neutral-800 to-neutral-900 rounded-full drop-shadow-2xl">
+        <ul className="text-neutral-500  flex gap-x-6 px-6 py-4 rounded-full bg-neutral-950">
         {navList.map((nav, index) => {
           const isActive = pathname.startsWith(nav.href);
           return (
-            <motion.div
+            <motion.li
               key={index}
               initial={{ maxWidth: 24 }}
               animate={{ maxWidth: isActive ? 200 : 24 }}
               transition={{
-                type: "spring",
-                mass: 1,
-                damping: 30,
-                stiffness: 200,
+                ease: "easeOut",
+                duration: 0.3,
               }}
               className={cn("cursor-pointer relative hover:text-white flex transition-colors duration-300", {
                 "text-white": isActive,
@@ -49,22 +48,21 @@ export default function Nav() {
                   {nav.name}
                 </motion.span>
               </div>
-              {isActive && (
+              {/* {isActive && (
                 <motion.div
                 transition={{
-                  type: "spring",
-                  mass: 1,
-                  damping: 30,
-                  stiffness: 600,
+                  ease: "easeOut",
+                  duration: 0.3,
                 }}
                 layoutId="spotLight"
                 className=" absolute top-[-17px] z-50 inset-x-2 h-[0.5px] bg-gradient-to-r from-neutral-800  via-white to-neutral-800"
                 />
-              )}
+              )} */}
               </Link>
-            </motion.div>
+            </motion.li>
           );
         })}
+      </ul>
       </nav>
   );
 }

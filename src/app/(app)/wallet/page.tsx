@@ -2,7 +2,7 @@ import AssetItem from "@/components/assetItem";
 import Balance from "@/components/balance";
 import Nav from "@/components/layouts/nav";
 import ProtectRoute from "@/components/protectRoute";
-import TransButton from "@/components/ui/transButton";
+import ActionButton from "@/components/ui/actionButton";
 
 import {
   Clock,
@@ -70,7 +70,7 @@ export default function Home() {
               key={index}
               className="flex flex-col items-center text-neutral-500 text-xs gap-y-2"
             >
-              <TransButton href={action.href}>{action.icon}</TransButton>
+              <ActionButton href={action.href}>{action.icon}</ActionButton>
               <div>{action.label}</div>
             </div>
           ))}

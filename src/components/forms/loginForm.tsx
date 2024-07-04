@@ -51,7 +51,7 @@ export default function LoginForm() {
           error={errors.password?.message}
         />
       </fieldset>
-      <div className="text-end text-neutral-500 mt-8">
+      <div className="text-end text-neutral-700 text-sm mt-8">
         <Link href={"/forgetPassword"}>Forget Password?</Link>
       </div>
       <div className="mt-12">

@@ -1,11 +1,13 @@
 import { cn } from "@/lib/utils";
 import { cva, VariantProps } from "class-variance-authority";
+import Link from "next/link";
 import { forwardRef } from "react";
 
-export const buttonVariants = cva("rounded-xl flex items-center justify-center disabled:opacity-75 disabled:pointer-events-none", {
+export const buttonVariants = cva("rounded-xl w-full flex items-center justify-center disabled:opacity-75 disabled:pointer-events-none", {
   variants: {
     variant: {
       default: "",
+      secondary: " bg-transparent border border-neutral-800 hover:bg-neutral-950",
       primary: "bg-neutral-100 text-black hover:bg-white",
     },
     size: {
@@ -19,10 +21,19 @@ export const buttonVariants = cva("rounded-xl flex items-center justify-center d
 });
 
 export type TButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
-  VariantProps<typeof buttonVariants>;
+  VariantProps<typeof buttonVariants> & {href?: string};
 
 const Button = forwardRef<HTMLButtonElement, TButtonProps>(
-  ({ variant, size, className, ...props }, ref) => {
+  ({ variant, size, className, href, ...props }, ref) => {
+    if (href) {
+      return (
+        <Link
+          className={cn(buttonVariants({ variant, size, className }))}
+          href={href}
+        >{props.children}</Link>
+      );
+    }
+
     return (
       <button
         className={cn(buttonVariants({ variant, size, className }))}
