@@ -1,45 +1,25 @@
-"use client";
+import * as React from "react"
 
-import { forwardRef, useState } from "react";
-import { Eye, EyeClosed } from "iconoir-react";
+import { cn } from "@/lib/utils"
 
-export type TInputProps = React.InputHTMLAttributes<HTMLInputElement> & {};
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-const Input = forwardRef<HTMLInputElement, TInputProps>(
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
-    const [showPassword, setShowPassword] = useState(false);
-
-    if (type !== "password") {
-      return (
-        <input
-          ref={ref}
-          type={type}
-          {...props}
-          className="mt-1 p-3 w-full placeholder:text-neutral-700 border bg-neutral-950 border-neutral-800 focus:outline outline-white rounded-xl"
-        />
-      );
-    }
-
-    function toggleShowPassword() {
-      setShowPassword(!showPassword);
-    }
-
     return (
-      <div className="relative flex items-center">
-        <input
-          ref={ref}
-          type={showPassword ? "text" : "password"}
-          {...props}
-          className="mt-1 p-3 w-full placeholder:text-neutral-700 border bg-neutral-950 border-neutral-800 focus:outline outline-white rounded-xl"
-        />
-        <button type="button" className="absolute right-3 text-neutral-700" onClick={toggleShowPassword}>
-          {showPassword ? <Eye width={20} /> : <EyeClosed width={20} />}
-        </button>
-      </div>
-    );
+      <input
+        type={type}
+        className={cn(
+          "flex h-10 w-full rounded-lg border border-gray5 bg-gray1 px-3 py-2 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-gray10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray12 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-800 dark:placeholder:text-zinc-400 dark:focus-visible:ring-zinc-300",
+          className
+        )}
+        ref={ref}
+        {...props}
+      />
+    )
   }
-);
+)
+Input.displayName = "Input"
 
-Input.displayName = "Input";
-
-export default Input;
+export { Input }

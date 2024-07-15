@@ -35,18 +35,18 @@ export default async function Balance() {
         <div className="text-neutral-400">Balance</div>
         <button
           onClick={copyToClipboard}
-          className=" flex items-center py-1 px-2  bg-neutral-900 border border-neutral-900 rounded-full group"
+          className=" flex items-center py-1 px-2 gap-x-1  bg-neutral-950 border border-neutral-900 rounded-full group"
         >
-          <div
-            className="max-w-20 text-xs"
-            style={{ mask: "linear-gradient(90deg, white 50%, transparent)" }}
-          >
-            {address}
-          </div>
           <Copy
             fontSize={10}
             className="text-neutral-500 duration-150 group-active:text-white group-active:scale-95"
           />
+          <div
+            className="max-w-16 text-xs"
+            style={{ mask: "linear-gradient(90deg, white 50%, transparent)" }}
+          >
+            {address}
+          </div>
         </button>
       </div>
       <div className="text-4xl font-semibold " >

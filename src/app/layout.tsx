@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import {inter} from "../lib/fonts";
 import "./globals.css";
-import { Toaster } from "sonner"
-
-const inter = Inter({ subsets: ["latin"] });
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Crypto Wallet",
@@ -16,11 +14,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.className} bg-black p-6 text-white h-screen w-screen`}>
-        {/* <div className="fixed z-30 bottom-0 w-full h-24 bg-gradient-to-b from-black/0 to-black" /> */}
+    <html lang="en">
+      <body
+        className={`${inter.className} min-h-[100dvh] p-6 flex flex-col`}
+      >
         {children}
-        <Toaster position="top-center" richColors/>
+        <Toaster position="top-center" richColors />
       </body>
     </html>
   );

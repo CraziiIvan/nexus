@@ -18,14 +18,14 @@ export default function AssetItem({ src, alt, name, price, change, quantity, val
         <Image src={src} alt={alt} width={38} height={38} />
         <div>
           <div className="font-medium">{name}</div>
-          <div className="text-sm flex gap-x-2 text-neutral-400">
+          <div className="text-sm flex gap-x-2 text-neutral-500">
             {price} <Status icon={false} percent={change}/>
           </div>
         </div>
       </div>
       <div>
         <div className="font-medium text-end">{quantity}</div>
-        <div className="text-sm text-neutral-400 text-end">{value}</div>
+        <div className="text-sm text-neutral-500 text-end">{value}</div>
       </div>
     </div>
     )

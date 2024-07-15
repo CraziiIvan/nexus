@@ -1,4 +1,3 @@
-import { raleway } from "@/lib/fonts";
 import Image from "next/image";
 
 export default function AuthLayout({
@@ -8,9 +7,10 @@ export default function AuthLayout({
 }) {
   return (
     <>
-      <header className=" flex items-center gap-x-2">
-        <Image src={"/nexus.svg"} alt="Nexus" width={24} height={24}/>
-        <h1 className={`${raleway.className} font-semibold text-2xl`}>Nexus</h1>
+      <header className="flex justify-start">
+        <div className="rounded-lg bg-gradient-to-br from-gray12 to-black p-1">
+          <Image src={"/nexus.svg"} alt="Nexus" width={24} height={24} />
+        </div>
       </header>
       {children}
     </>

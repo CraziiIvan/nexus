@@ -5,17 +5,17 @@ import Button from "../ui/button";
 const actions = [
     {
       href: "/wallet/send",
-      icon: <Upload fontSize={13}  className="text-white"/>,
+      icon: <Upload fontSize={12}  className="text-white"/>,
       label: "Send",
     },
     {
       href: "/wallet/receive",
-      icon: <Download fontSize={13} className="text-white" />,
+      icon: <Download fontSize={12} className="text-white" />,
       label: "Receive",
     },
     {
       href: "/wallet/history",
-      icon: <Clock fontSize={13} className="text-white" />,
+      icon: <Clock fontSize={12} className="text-white" />,
       label: "History",
     },
   ];

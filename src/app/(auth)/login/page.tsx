@@ -1,22 +1,19 @@
-import LoginForm from "@/components/forms/loginForm";
+import LoginForm from "@/components/forms/login-form";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function Page() {
-
   return (
     <>
-      <main className=" py-12 grid gap-12">
+      <main className="space-y-6 py-6">
         <section>
           <h1 className="text-xl font-semibold">Welcome Back!</h1>
-          <p className="mt-1 text-neutral-500">
-            Login to your account
-          </p>
+          <p className="text-gray10">Login to your account</p>
         </section>
-        <LoginForm/>
+        <LoginForm />
       </main>
-      <footer className="w-full text-center pb-8">
-        <span className="text-neutral-700">Don't have an account? </span>
-        <Link href="/register">Register</Link>
+      <footer className="w-full pb-8 text-center">
+        <Link href="/register" className="text-gray10 text-sm">Don't have an account? </Link>
       </footer>
     </>
   );
