@@ -1,56 +1,29 @@
-"use client"
+"use client";
 
-import { getWallet } from "@/lib/actions";
 import { formatter } from "@/lib/helper";
-import { useEffect, useState } from "react";
-import { toast } from "sonner";
+import { Skeleton } from "./ui/skeleton";
 import Status from "./ui/status";
-import { Copy } from "iconoir-react";
+import { useGetWallet } from "@/lib/hooks/useGetWallet";
 
-export default async function Balance() {
-  const [balance, setBalance] = useState<string | null>("$0.00");
-  const [address, setAddress] = useState<string>("");
+export default function Balance() {
+  const { data, isLoading } = useGetWallet();
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await getWallet();
-      setBalance(formatter.format(response.balance));
-      setAddress(response.address);
-    }
-    fetchData();
-  }, []);
-
-  async function copyToClipboard() {
-    try {
-      await navigator.clipboard.writeText(address);
-      toast.success("Copy to clipboard");
-    } catch (err) {
-      toast.error("Failed to copy");
-    }
-  }
+  if (data) console.log(data);
 
   return (
-    <div className=" flex flex-col py-2 space-y-4">
-      <div className="flex gap-x-4 items-center">
-        <div className="text-neutral-400">Balance</div>
-        <button
-          onClick={copyToClipboard}
-          className=" flex items-center py-1 px-2 gap-x-1  bg-neutral-950 border border-neutral-900 rounded-full group"
-        >
-          <Copy
-            fontSize={10}
-            className="text-neutral-500 duration-150 group-active:text-white group-active:scale-95"
-          />
-          <div
-            className="max-w-16 text-xs"
-            style={{ mask: "linear-gradient(90deg, white 50%, transparent)" }}
-          >
-            {address}
-          </div>
-        </button>
+    <div>
+      <div className="flex items-center gap-x-4">
+        <div className="text-sm text-gray8">Total Balance</div>
       </div>
-      <div className="text-4xl font-semibold " >
-      {balance}
+      <div className="mb-2 flex text-4xl font-bold">
+        {isLoading ? (
+          <div className="space-y-0.5">
+            <Skeleton className="h-6 w-56 rounded" />
+            <Skeleton className="h-2.5 w-56 rounded" />
+          </div>
+        ) : (
+          formatter.format(data.balance)
+        )}
       </div>
       <Status percent={16.42} />
     </div>

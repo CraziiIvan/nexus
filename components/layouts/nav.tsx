@@ -1,15 +1,20 @@
 "use client";
 
-import { Wallet, GraphUp, User, Settings } from "iconoir-react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
+import wallet from "@/public/icons/wallet.svg"
+import explore from "@/public/icons/explore.svg"
+import setting from "@/public/icons/setting.svg"
+import home from "@/public/icons/home.svg"
+import { cn } from "@/lib/utils";
 
 const navList = [
-  { name: "Wallet", icon: <Wallet width={20} />, href: "/wallet" },
-  { name: "Market", icon: <GraphUp width={20} />, href: "/market" },
-  { name: "Setting", icon: <Settings width={20} />, href: "/setting" },
+  { name: "Home", icon:  home, href: "/home" },
+  { name: "Wallet", icon:  wallet, href: "/wallet" },
+  { name: "Market", icon: explore, href: "/market" },
+  { name: "Setting", icon: setting, href: "/setting" },
 ];
 
 export default function Nav() {
@@ -21,48 +26,20 @@ export default function Nav() {
   }
 
   return (
-      <nav className="fixed z-40 bottom-6 left-1/2 -translate-x-1/2 p-px bg-gradient-to-b from-neutral-800 to-neutral-900 rounded-full drop-shadow-2xl">
-        <ul className="text-neutral-500  flex gap-x-6 px-6 py-4 rounded-full bg-neutral-950">
+      <nav className="fixed z-40 bottom-8 left-1/2 -translate-x-1/2 bg-gray4/50 flex p-1 gap-x-1 rounded-full border border-gray5 backdrop-blur-sm">
         {navList.map((nav, index) => {
           const isActive = pathname.startsWith(nav.href);
           return (
-            <motion.li
-              key={index}
-              initial={{ maxWidth: 24 }}
-              animate={{ maxWidth: isActive ? 200 : 24 }}
-              transition={{
-                ease: "easeOut",
-                duration: 0.3,
-              }}
-              className={cn("cursor-pointer relative hover:text-white flex transition-colors duration-300", {
-                "text-white": isActive,
-              })}
-            >
-              <Link href={nav.href}>
-              <div className="flex justify-start items-center gap-x-2">
-                {nav.icon}
-                <motion.span
-                  animate={{ opacity: isActive ? 100 : 0 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  {nav.name}
-                </motion.span>
-              </div>
-              {/* {isActive && (
-                <motion.div
-                transition={{
-                  ease: "easeOut",
-                  duration: 0.3,
-                }}
-                layoutId="spotLight"
-                className=" absolute top-[-17px] z-50 inset-x-2 h-[0.5px] bg-gradient-to-r from-neutral-800  via-white to-neutral-800"
-                />
-              )} */}
+              <Link key={index} href={nav.href} >
+                <div className=" relative w-[52px] h-[52px] rounded-full aspect-square flex justify-center items-center">
+                <div className={cn("relative z-50 opacity-30 transition-opacity ease-out duration-300", { "opacity-100": isActive })}>
+                  <Image src={nav.icon} alt="nav icon" width={24} height={24} />
+                </div>
+                { isActive && <motion.div layoutId="navBackDrop" className="absolute shadow inset-0 rounded-full bg-white z-40" />    }
+                </div>
               </Link>
-            </motion.li>
           );
         })}
-      </ul>
       </nav>
   );
 }

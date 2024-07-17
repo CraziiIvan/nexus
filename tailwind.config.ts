@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss"
-import { gray, red } from "@radix-ui/colors";
+import { gray, green, red } from "@radix-ui/colors";
 
 const config = {
   darkMode: ["class"],
@@ -22,6 +22,7 @@ const config = {
       colors: {
         ...gray,
         ...red,
+        ...green,
       },
       keyframes: {
         "accordion-down": {

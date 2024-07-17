@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {inter} from "../lib/fonts";
 import "./globals.css";
 import { Toaster } from "sonner";
+import ReactQueryProvider from "@/components/providers/react-query-provider";
 
 export const metadata: Metadata = {
   title: "Crypto Wallet",
@@ -16,9 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} min-h-[100dvh] p-6 flex flex-col`}
+        className={`${inter.className} min-h-[100dvh] p-6 pb-0 flex flex-col`}
       >
-        {children}
+        <ReactQueryProvider>
+          {children}
+        </ReactQueryProvider>
         <Toaster position="top-center" richColors />
       </body>
     </html>

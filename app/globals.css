@@ -1,4 +1,24 @@
 @tailwind base;
   @tailwind components;
   @tailwind utilities;
+
+  @import "@radix-ui/colors/green.css";
+  
+  @layer base {
+    :root {
+      --chart-1: var(--green-9);
+      --chart-2: 140 74% 44%;
+      --chart-3: 142 88% 28%;
+      --chart-4: 137 55% 15%;
+      --chart-5: 141 40% 9%;
+    }
+  
+    .dark {
+      --chart-1: 142 88% 28%;
+      --chart-2: 139 65% 20%;
+      --chart-3: 140 74% 24%;
+      --chart-4: 137 55% 15%;
+      --chart-5: 141 40% 9%;
+    }
+  }
   

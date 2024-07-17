@@ -15,7 +15,7 @@ export default function Home() {
         </div>
       </header>
       <main className="-mx-2 mt-6 grow rounded-2xl bg-gray4"></main>
-      <footer className="mt-6 space-y-8">
+      <footer className="mt-6 space-y-8 pb-6">
         <div>
           <h2 className="text-lg text-gray10">Step into future of finance.</h2>
           <h1 className="text-3xl font-bold">
