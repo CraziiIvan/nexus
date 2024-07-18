@@ -1,30 +1,29 @@
 import { cn } from "@/lib/utils";
-import { ArrowUp } from "lucide-react";
+import { ArrowDown, ArrowUp } from "lucide-react";
 
 export default function Status({
   percent,
-  icon = true,
 }: {
   percent: number;
-  icon?: boolean;
 }) {
+
+  const isPositive = percent > 0;
+
   return (
     <div
       className={cn("text-sm flex items-center gap-x-1", {
-        "text-green9": percent > 0,
-        "text-red-500": percent < 0,
+        "text-green9": isPositive,
+        "text-red9": !isPositive,
       })}
     >
-      {icon && (
         <div
           className={cn(
-            "flex h-4 w-4 items-center justify-center rounded-full text-green9",
-            { "bg-green4": percent > 0, "bg-red9": percent < 0 },
+            "flex h-4 w-4 items-center justify-center rounded-full ",
+            { "bg-green4": isPositive, "bg-red4": !isPositive },
           )}
         >
-          <ArrowUp size={12} />
+          { isPositive ? <ArrowUp size={12} /> : <ArrowDown size={12} /> }
         </div>
-      )}
       {percent} %
     </div>
   );

@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} min-h-[100dvh] p-6 pb-0 flex flex-col`}
+        className={`${inter.className} h-[100dvh] overflow-auto p-6 pb-0 flex flex-col`}
       >
         <ReactQueryProvider>
           {children}

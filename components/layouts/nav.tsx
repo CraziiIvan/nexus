@@ -9,6 +9,7 @@ import explore from "@/public/icons/explore.svg"
 import setting from "@/public/icons/setting.svg"
 import home from "@/public/icons/home.svg"
 import { cn } from "@/lib/utils";
+import { useScroll } from "@/lib/hooks/use-scroll";
 
 const navList = [
   { name: "Home", icon:  home, href: "/home" },
@@ -21,12 +22,14 @@ export default function Nav() {
 
   const pathname = usePathname()
 
+  const isScrolling = useScroll(1000)
+
   if ( pathname === "/" || pathname ==="/login" || pathname ==="/register") {
     return null
   }
 
   return (
-      <nav className="fixed z-40 bottom-8 left-1/2 -translate-x-1/2 bg-gray4/50 flex p-1 gap-x-1 rounded-full border border-gray5 backdrop-blur-sm">
+      <motion.nav animate={{ bottom: isScrolling ? -64 : 32 }} transition={{ease: "easeOut", duration: 0.3 }} className="fixed z-40 bottom-8 left-1/2 -translate-x-1/2 bg-gray4/50 flex p-1 gap-x-1 rounded-full border border-gray5 backdrop-blur-sm">
         {navList.map((nav, index) => {
           const isActive = pathname.startsWith(nav.href);
           return (
@@ -40,6 +43,6 @@ export default function Nav() {
               </Link>
           );
         })}
-      </nav>
+      </motion.nav>
   );
 }

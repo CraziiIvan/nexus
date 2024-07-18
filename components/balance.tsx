@@ -8,7 +8,7 @@ import { useGetWallet } from "@/lib/hooks/useGetWallet";
 export default function Balance() {
   const { data, isLoading } = useGetWallet();
 
-  if (data) console.log(data);
+  const currencyFormatter = formatter("usd");
 
   return (
     <div>
@@ -22,7 +22,7 @@ export default function Balance() {
             <Skeleton className="h-2.5 w-56 rounded" />
           </div>
         ) : (
-          formatter.format(data.balance)
+          currencyFormatter.format(data.balance)
         )}
       </div>
       <Status percent={16.42} />

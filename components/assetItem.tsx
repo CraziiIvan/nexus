@@ -19,7 +19,7 @@ export default function AssetItem({ src, alt, name, price, change, quantity, val
         <div>
           <div className="font-medium">{name}</div>
           <div className="text-sm flex gap-x-2 text-neutral-500">
-            {price} <Status icon={false} percent={change}/>
+            {price} <Status percent={change}/>
           </div>
         </div>
       </div>

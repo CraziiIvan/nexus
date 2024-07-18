@@ -1,3 +1,5 @@
+import { Currency } from "lucide-react";
+
 export function getRandomCharacter() {
   const characters =
     "abcdefghijklmnopqrstuvwxyz0123456789";
@@ -13,10 +15,13 @@ export function generateRandomString(length: number) {
   return randomString;
 }
 
-export const formatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD"
-})
+export const formatter = (currency?: string) => {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: currency,
+  });
+};
+
 
 export function shorternId(id: string) {
   if (id.length <= 12) {
