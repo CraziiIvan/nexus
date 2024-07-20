@@ -7,21 +7,17 @@ import { formatter } from "@/lib/helper";
 import Status from "@/components/ui/status";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { LoaderCircle, SlidersHorizontal } from "lucide-react";
-import { useInView } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { TMarketQueryParams } from "@/lib/types";
-import { set } from "zod";
 
 export default function MarketPage() {
   const [filters, setFilters] = useState({
@@ -33,11 +29,12 @@ export default function MarketPage() {
 
   const [search, setSearch] = useState("");
 
-  const { data, fetchNextPage, isFetchingNextPage, isLoading } =
+  const { data, fetchNextPage, isFetchingNextPage, isLoading, hasNextPage } =
     useGetMarket(filters);
 
-  const ref = useRef(null);
-  const isInView = useInView(ref);
+  const [ ref, inView ] = useInView({
+    threshold: 0.5,
+  });
 
   const handleFilterChange = (newFilters: Partial<TMarketQueryParams>) => {
     setFilters((prevFilters) => ({ ...prevFilters, ...newFilters }));
@@ -48,14 +45,12 @@ export default function MarketPage() {
   };
 
   useEffect(() => {
-    if (isInView) {
+    if (inView) {
       fetchNextPage();
     }
-  }, [isInView]);
+  }, [fetchNextPage, inView]);
 
   const currencyFormatter = formatter(filters.vs_currency);
-
-  const tokens = data?.pages.flatMap(page => page);
 
   return (
     <>
@@ -73,7 +68,7 @@ export default function MarketPage() {
           </DropdownMenuTrigger>
           <DropdownMenuContent className="mx-2 space-y-5 p-4">
             <DropdownMenuGroup className="flex items-center justify-between gap-x-4">
-              <div className="text-gray8">Currency</div>
+              <div>Currency</div>
               <ToggleGroup
                 type="single"
                 variant="outline"
@@ -96,28 +91,34 @@ export default function MarketPage() {
         <SearchBar value={search} onChange={handleSearchChange} />
         <div className="mt-2">
           <ScrollArea className="pb-24">
-            { tokens && tokens.filter((token) => token.name.toLowerCase().includes(search.toLowerCase())).map((token, index) => (
-                <div key={index} className="flex items-center gap-x-4 py-2.5">
-                  <Image
-                    src={token.image}
-                    alt={token.name}
-                    width={38}
-                    height={38}
-                  />
-                  <div className="flex grow items-center justify-between">
-                    <div>
-                      <div className="font-medium">{token.name}</div>
-                      <div className="text-sm text-gray11">{token.symbol}</div>
-                    </div>
-                    <div>
-                      <div className="text-end font-medium">
-                        {currencyFormatter.format(token.current_price)}
+            {data?.pages.map(
+              (page) =>
+                page &&
+                page.map((token, index) => (
+                  <div key={index} className="flex items-center gap-x-4 py-2.5">
+                    <Image
+                      src={token.image}
+                      alt={token.name}
+                      width={38}
+                      height={38}
+                    />
+                    <div className="flex grow items-center justify-between">
+                      <div>
+                        <div className="font-medium">{token.name}</div>
+                        <div className="text-sm text-gray11">
+                          {token.symbol}
+                        </div>
                       </div>
-                      <Status percent={token.price_change_percentage_24h} />
+                      <div>
+                        <div className="text-end font-medium">
+                          {currencyFormatter.format(token.current_price)}
+                        </div>
+                        <Status percent={token.price_change_percentage_24h} />
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                )),
+            )}
             <div
               className="flex w-full items-center justify-center py-2"
               ref={ref}

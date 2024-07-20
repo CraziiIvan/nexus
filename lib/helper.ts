@@ -22,6 +22,11 @@ export const formatter = (currency?: string) => {
   });
 };
 
+// export const formatter = new Intl.NumberFormat("en-US", {
+//   style: "currency",
+//   currency: "USD",
+// });
+
 
 export function shorternId(id: string) {
   if (id.length <= 12) {
