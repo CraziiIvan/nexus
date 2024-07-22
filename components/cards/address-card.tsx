@@ -51,6 +51,7 @@ export default function AddressCard() {
               <Check size={12} strokeWidth={2.5} />
             </motion.div>
             <motion.div
+              initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: success ? 0.5 : 1, opacity: success ? 0 : 1 }}
             >
               <Copy size={13} />

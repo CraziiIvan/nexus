@@ -3,12 +3,7 @@
 import {
   Area,
   AreaChart,
-  CartesianGrid,
-  Line,
-  LineChart,
-  XAxis,
 } from "recharts";
-import { motion } from "framer-motion";
 
 import {
   ChartConfig,
@@ -16,7 +11,6 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 const chartData = [
