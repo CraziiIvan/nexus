@@ -1,5 +1,5 @@
 import Image from "next/image"
-import Status from "./ui/status"
+import Status from "../ui/status"
 
 type TAssetItemProps = {
     src: string
@@ -11,7 +11,7 @@ type TAssetItemProps = {
     value?: string
 }
 
-export default function AssetItem({ src, alt, name, price, change, quantity, value }: TAssetItemProps){
+export default function AssetCard({ src, alt, name, price, change, quantity, value }: TAssetItemProps){
     return (
       <div className="flex items-center justify-between w-full">
       <div className="flex gap-x-4">

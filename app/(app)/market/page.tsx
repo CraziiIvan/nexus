@@ -2,13 +2,10 @@
 
 import SearchBar from "@/components/ui/search-bar";
 import { useGetMarket } from "@/lib/hooks/useGetMarket";
-import Image from "next/image";
-import { formatter } from "@/lib/helper";
-import Status from "@/components/ui/status";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { LoaderCircle, SlidersHorizontal } from "lucide-react";
 import { useInView } from "react-intersection-observer";
-import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,6 +15,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { TMarketQueryParams } from "@/lib/types";
+import TokenCard from "@/components/cards/token-card";
 
 export default function MarketPage() {
   const [filters, setFilters] = useState({
@@ -50,7 +48,6 @@ export default function MarketPage() {
     }
   }, [fetchNextPage, inView]);
 
-  const currencyFormatter = formatter(filters.vs_currency);
 
   return (
     <>
@@ -95,29 +92,16 @@ export default function MarketPage() {
               (page) =>
                 page &&
                 page.map((token, index) => (
-                  <div key={index} className="flex items-center gap-x-4 py-2.5">
-                    <Image
-                      src={token.image}
-                      alt={token.name}
-                      width={38}
-                      height={38}
-                    />
-                    <div className="flex grow items-center justify-between">
-                      <div>
-                        <div className="font-medium">{token.name}</div>
-                        <div className="text-sm text-gray11">
-                          {token.symbol}
-                        </div>
-                      </div>
-                      <div>
-                        <div className="text-end font-medium">
-                          {currencyFormatter.format(token.current_price)}
-                        </div>
-                        <Status percent={token.price_change_percentage_24h} />
-                      </div>
-                    </div>
-                  </div>
-                )),
+                  <TokenCard
+                    key={index}
+                    image={token.image}
+                    name={token.name}
+                    symbol={token.symbol}
+                    current_price={token.current_price}
+                    price_change_percentage_24h={token.price_change_percentage_24h}
+                    currency={filters.vs_currency}
+                  />
+                ))
             )}
             <div
               className="flex w-full items-center justify-center py-2"

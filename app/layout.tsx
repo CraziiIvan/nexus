@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import {inter} from "../lib/fonts";
 import "./globals.css";
-import { Toaster } from "sonner";
+import { Toaster } from "@/components/ui/toaster";
 import ReactQueryProvider from "@/components/providers/react-query-provider";
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export default function RootLayout({
         <ReactQueryProvider>
           {children}
         </ReactQueryProvider>
-        <Toaster position="top-center" richColors />
+        <Toaster />
       </body>
     </html>
   );
