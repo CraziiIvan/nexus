@@ -40,7 +40,7 @@ const currencyFormatter = formatter("USD");
 
 export default function AssetsCardContainer() {
   return (
-    <div className="-mr-6 mt-6">
+    <div className="-mr-6 mt-6 md:col-span-3">
       <div className="font-medium">Your Assets</div>
         <div style={{ mask: "linear-gradient(to right, white 80%, transparent)" }} className="flex mt-4 w-full overflow-x-auto space-x-4">
           <Card className="shrink-0 rounded-3xl">

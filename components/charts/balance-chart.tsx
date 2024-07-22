@@ -61,7 +61,7 @@ export default function BalanceChart() {
 
   return (
     <div>
-      <ChartContainer className="-mx-6" config={chartConfig}>
+      <ChartContainer className="-mx-6 md:mx-0" config={chartConfig}>
         <AreaChart accessibilityLayer data={chartData}>
           <defs>
             <linearGradient id="fillTotalBalance" x1="0" y1="0" x2="0" y2="1">

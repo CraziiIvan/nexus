@@ -6,11 +6,11 @@ import { Bell } from "lucide-react";
 export default function HomePage() {
   return (
     <>
-      <header className="flex items-center justify-between">
+      <header className="flex items-center justify-between md:hidden">
         <UserCard />
         <Bell size={20} className="text-gray9" />
       </header>
-      <main className="mt-6 flex grow flex-col">
+      <main className="mt-6 grow grid grid-cols-3 md:gap-4 ">
         <Home />
         <AssetsCardContainer />
       </main>

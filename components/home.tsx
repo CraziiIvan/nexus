@@ -32,11 +32,9 @@ const actions = [
 export default function Home() {
 
   return (
-    <>
-    <div>
+    <div className=" md:p-6 md:col-span-2 md:border-2 md:border-gray-2 md:rounded-xl bg-white">
       <Balance />
       <BalanceChart/>
     </div>
-    </>
   );
 }

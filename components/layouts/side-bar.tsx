@@ -9,7 +9,6 @@ import explore from "@/public/icons/explore.svg";
 import setting from "@/public/icons/setting.svg";
 import home from "@/public/icons/home.svg";
 import { cn } from "@/lib/utils";
-import { useScroll } from "@/lib/hooks/use-scroll";
 
 const navList = [
   { name: "Home", icon: home, href: "/home" },
@@ -18,44 +17,47 @@ const navList = [
   { name: "Setting", icon: setting, href: "/setting" },
 ];
 
-export default function Nav() {
+export default function SideBar() {
   const pathname = usePathname();
 
-  const isScrolling = useScroll(1000);
-
-  if (pathname === "/" || pathname === "/login" || pathname === "/register") {
-    return null;
-  }
-
   return (
-    <motion.nav
-      animate={{ bottom: isScrolling ? -64 : 32 }}
-      transition={{ ease: "easeOut", duration: 0.3 }}
-      className="fixed bottom-8 left-1/2 z-40 flex -translate-x-1/2 gap-x-1 rounded-full border border-gray5 bg-gray4/50 p-1 backdrop-blur-sm md:hidden"
-    >
-      {navList.map((nav, index) => {
+<aside className="row-span-3 w-full p-4 border-r border-r-gray4 bg-white">
+        <div className="rounded-lg ml-3 bg-gradient-to-br from-gray12 to-black p-1 w-8">
+          <Image src={"/nexus.svg"} alt="Nexus" width={24} height={24} />
+        </div>
+    <nav className=" mt-4">
+    {navList.map((nav, index) => {
         const isActive = pathname.startsWith(nav.href);
         return (
           <Link key={index} href={nav.href}>
-            <div className="relative flex aspect-square h-[52px] w-[52px] items-center justify-center rounded-full">
+            <div className="group relative flex items-center gap-x-3 px-3 py-2">
               <div
                 className={cn(
-                  "relative z-50 opacity-30 transition-opacity duration-300 ease-out",
+                  "relative z-50 opacity-30 transition-opacity duration-300 ease-out group-hover:opacity-100",
                   { "opacity-100": isActive },
                 )}
               >
-                <Image src={nav.icon} alt="nav icon" width={24} height={24} />
+                <Image src={nav.icon} alt="nav icon" width={20} height={20} />
+              </div>
+              <div
+                className={cn(
+                  "relative z-50 text-gray9 duration-300 ease-out group-hover:text-black font-medium",
+                  { "text-black": isActive },
+                )}
+              >
+                {nav.name}
               </div>
               {isActive && (
                 <motion.div
                   layoutId="navBackDrop"
-                  className="absolute inset-0 z-40 rounded-full bg-white shadow"
+                  className="absolute inset-0 z-40 rounded-md bg-gray2 "
                 />
               )}
             </div>
           </Link>
         );
       })}
-    </motion.nav>
+    </nav>
+    </aside>
   );
 }
