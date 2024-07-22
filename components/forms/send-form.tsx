@@ -19,7 +19,7 @@ import { useMediaQuery } from "@/lib/hooks/use-media-query";
 import { useState } from "react";
 import { DialogHeader, Dialog, DialogContent, DialogDescription, DialogTitle  } from "@/components/ui/dialog";
 import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "../ui/drawer";
-import { Check, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { useToast } from "../ui/use-toast";
 
 export default function SendForm() {

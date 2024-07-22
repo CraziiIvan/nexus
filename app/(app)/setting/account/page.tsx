@@ -1,5 +1,5 @@
-import Button from "@/components/ui/button";
-import { NavArrowLeft, NavArrowRight } from "iconoir-react";
+import {Button} from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 const acountSettings = [
@@ -16,16 +16,16 @@ export default function AccountPage() {
   return (
     <>
       <header className="flex items-center gap-x-4">
-        <Link className="text-neutral-500" href={"./"}>
-          <NavArrowLeft fontSize={14} />
+        <Link className="text-gray9" href={"./"}>
+          <ChevronLeft size={20} />
         </Link>
         Account
       </header>
       <div className="mt-8 flex items-center gap-x-4">
-        <div className="aspect-square h-12 w-12 rounded-full border border-neutral-800 bg-neutral-900"></div>
+        <div className="aspect-square h-12 w-12 rounded-full border border-gray4 bg-gray1"></div>
         <div>
           <div className="font-medium">User Name</div>
-          <div className="text-neutral-500 text-sm">User Id</div> 
+          <div className="text-gray11 text-sm">User Id</div> 
         </div>
       </div>
       <div className="mt-8 flex flex-col items-end">
@@ -33,17 +33,17 @@ export default function AccountPage() {
           <Link
             key={setting.name}
             href={setting.href}
-            className="flex w-full items-center justify-between py-3 text-neutral-500"
+            className="flex w-full items-center justify-between py-3 text-gray9"
           >
-            <div className="text-neutral-100">{setting.name}</div>
-            <NavArrowRight fontSize={12} />
+            <div className="text-black">{setting.name}</div>
+            <ChevronRight size={20} />
           </Link>
         ))}
-        <div className="flex w-full items-center justify-between mt-8 text-neutral-500">
-          <Button variant="secondary" size="small" className="text-white">
+        <div className="flex w-full items-center justify-between mt-8">
+          <Button variant="secondary">
             Logout
           </Button>
-          <Button variant="secondary" size="small" className="text-red-500">
+          <Button variant="destructive">
             Delete account
           </Button>
         </div>
