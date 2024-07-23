@@ -14,7 +14,7 @@ export default function Layout({
       </header>
       {children}
       <Nav />
-      <div className=" z-30 fixed bottom-0 inset-x-0 bg-gradient-to-t from-white to-transparent h-20" />
+      <div className=" z-30 fixed bottom-0 inset-x-0 bg-gradient-to-t from-white md:hidden to-transparent h-20" />
     </>
   );
 }
