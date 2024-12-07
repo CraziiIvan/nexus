@@ -4,29 +4,26 @@ import { useGetWallet } from "@/lib/hooks/useGetWallet";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Check, Copy } from "lucide-react";
 import { shorternId } from "@/lib/helper";
-import { useToast } from "../ui/use-toast";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useToast } from "../ui/use-toast";
 
 export default function AddressCard() {
   const { data, isLoading } = useGetWallet();
   const [address, setAddress] = useState<string>("");
   const [success, setSuccess] = useState(false);
-  const { toast } = useToast();
 
   useEffect(() => {
     setAddress(data?.address);
   }, [data]);
+
+  const { toast } = useToast()
 
   async function copyToClipboard(text: string) {
     
     try {
       await navigator.clipboard.writeText(text);
       setSuccess(true);
-      toast({description: "Copied to clipboard"})
-      setTimeout(() => {
-        setSuccess(false);
-      }, 4000);
     } catch (err) {
       console.error(err);
       toast({description: "Failed to copy to clipboard", variant: "destructive"});
@@ -36,7 +33,7 @@ export default function AddressCard() {
   return (
     <button
       onClick={() => copyToClipboard(address)}
-      className="group flex w-fit items-center gap-2 overflow-hidden rounded-full border border-gray4 bg-gray2 px-2 py-1 text-sm"
+      className="relative group flex w-fit items-center gap-2 overflow-hidden rounded-full border border-gray4 bg-gray2 px-2 py-1 text-sm"
     >
       {isLoading ? (
         <Skeleton className="h-5 w-24 rounded-full" />

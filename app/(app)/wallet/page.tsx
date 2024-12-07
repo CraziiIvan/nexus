@@ -36,7 +36,7 @@ export default function WalletPage() {
         <AddressCard/>
         <ScanLine size={20} className="text-gray9" />
       </header>
-      <main className="pt-8 space-y-8 flex flex-col grow">
+      <main className="pt-8 space-y-8 flex flex-col">
       <Balance className="flex flex-col items-center" />
       <div className="mt-8 grid grid-cols-4">
         {actions.map((action, index) => (
@@ -48,7 +48,8 @@ export default function WalletPage() {
           </Link>
         ))}
       </div>
-      <div className="-mx-6 mt-8 grow rounded-t-3xl border border-gray4 bg-gray2 px-6 pt-4">
+      </main>
+      <div className="-mx-6 mt-8 rounded-t-3xl border border-gray4 bg-gray2 px-6 pt-4">
         <div className="mt-2">
           <div className="font-medium">Assets</div>
           <div className="text-sm text-gray9">Your tokens</div>
@@ -74,7 +75,6 @@ export default function WalletPage() {
           />
         </div>
       </div>
-      </main>
     </>
   );
 }

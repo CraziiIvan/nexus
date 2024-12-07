@@ -21,7 +21,7 @@ export default function SideBar() {
   const pathname = usePathname();
 
   return (
-<aside className="row-span-3 w-full p-4 border-r border-r-gray4 bg-gray2">
+<aside className="hidden md:block row-span-3 w-full p-4 border-r border-r-gray4 bg-gray2">
         <div className="rounded-lg ml-3 bg-gradient-to-br from-gray12 to-black p-1 w-8">
           <Image src={"/nexus.svg"} alt="Nexus" width={24} height={24} />
         </div>

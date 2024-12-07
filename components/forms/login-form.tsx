@@ -31,7 +31,6 @@ export default function LoginForm() {
     try {
       const response = await api.post("/auth/token/obtain/", data);
       setAuthTokens(response.data.access, response.data.refresh);
-      router.push("/home");
     } catch (error) {
       console.error(error);
       form.setError("root", { message: "Please check your credentials." });

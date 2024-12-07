@@ -1,6 +1,6 @@
 "use client"
 
-import SettingCard from "@/components/cards/settingCard";
+import SettingCard from "@/components/cards/setting-card";
 import SearchBar from "@/components/ui/search-bar";
 import { Eye, Shield, User, Wallet } from "lucide-react";
 import { useState } from "react";

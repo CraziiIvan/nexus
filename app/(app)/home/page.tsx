@@ -10,7 +10,7 @@ export default function HomePage() {
         <UserCard />
         <Bell size={20} className="text-gray9" />
       </header>
-      <main className="mt-6 grow grid grid-cols-3 md:gap-4 ">
+      <main className="mt-6 grow grid grid-cols-1 md:grid-cols-4 md:gap-4 ">
         <Home />
         <AssetsCardContainer />
       </main>

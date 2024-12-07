@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import wallet from "@/public/icons/wallet.svg";
-import explore from "@/public/icons/explore.svg";
+import market from "@/public/icons/market.svg";
 import setting from "@/public/icons/setting.svg";
 import home from "@/public/icons/home.svg";
 import { cn } from "@/lib/utils";
@@ -14,7 +14,7 @@ import { useScroll } from "@/lib/hooks/use-scroll";
 const navList = [
   { name: "Home", icon: home, href: "/home" },
   { name: "Wallet", icon: wallet, href: "/wallet" },
-  { name: "Market", icon: explore, href: "/market" },
+  { name: "Market", icon: market, href: "/market" },
   { name: "Setting", icon: setting, href: "/setting" },
 ];
 
@@ -44,7 +44,7 @@ export default function Nav() {
                   { "opacity-100": isActive },
                 )}
               >
-                <Image src={nav.icon} alt="nav icon" width={24} height={24} />
+                <Image src={nav.icon} alt="nav icon" width={20} height={20} />
               </div>
               {isActive && (
                 <motion.div
